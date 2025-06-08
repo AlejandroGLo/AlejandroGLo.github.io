@@ -41,3 +41,7 @@ header{
     width:24px;
     height:24px;
 }
+
+.circle {
+  border-radius: 50%;
+}
