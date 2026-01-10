@@ -1,0 +1,110 @@
+<!-- java-game.html -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Showdown | Project</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <!-- NAV (same as index, but links go back to index sections) -->
+    <header class="site-header">
+        <nav class="nav">
+            <div class="nav__left">
+                <a class="icon-btn" href="https://www.linkedin.com/in/alejandrogalvezlopez" target="_blank"
+                    rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                    <img src="img/linkedin.svg" alt="LinkedIn" class="nav-icon" />
+                </a>
+
+                <a class="icon-btn" href="https://github.com/AlejandroGLo" target="_blank" rel="noreferrer"
+                    aria-label="GitHub" title="GitHub">
+                    <img src="img/github.svg" alt="GitHub" class="nav-icon" />
+                </a>
+
+                <a class="icon-btn" href="https://www.figma.com/@alejandroglo" target="_blank" rel="noreferrer"
+                    aria-label="Figma" title="Figma">
+                    <img src="img/figma.svg" alt="Figma" class="nav-icon" />
+                </a>
+            </div>
+
+            <div class="nav__center">
+                <a class="nav__link" href="index.html#about">About</a>
+                <a class="nav__link" href="index.html#experience">Experience</a>
+                <a class="nav__link" href="index.html#projects">Projects</a>
+                <a class="nav__link" href="index.html#contact">Contact</a>
+            </div>
+
+            <div class="nav__right">
+                <a class="btn btn--outline" href="cv/MyCV:Resume.pdf" target="_blank" rel="noreferrer">
+                    Resume
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section section--projects">
+            <div class="container project-detail">
+                <!-- LEFT -->
+                <div class="project-detail__main">
+                    <h1 class="project-detail__title">Showdown</h1>
+                    <p class="project-detail__subtitle">Java game to improve my programming and UI skills</p>
+
+                    <h3 class="project-detail__section-title">UI - Figma</h3>
+                    <ul class="project-detail__list">
+                        <li>Created a background image using AI tools that would fit with the theme of the video game.
+                        </li>
+                        <li>Played around with Figma fonts and Google fonts.</li>
+                        <li>Implemented prototypes for hovering effects on the buttons.</li>
+                    </ul>
+
+                    <h3 class="project-detail__section-title">Programming - Java</h3>
+                    <ul class="project-detail__list">
+                        <li>Developed in Java using AWT and Swing, with a JFrame-based interface to handle rendering,
+                            input, and basic game flow.</li>
+                        <li>Object-oriented programming principles, including classes for wizards, spells, and battles,
+                            to keep the code modular and easy to expand.</li>
+                    </ul>
+                </div>
+
+                <!-- RIGHT -->
+                <aside class="project-detail__side">
+                    <div class="project-detail__preview">
+                        <img src="img/mainmenu.png" alt="Showdown game preview" />
+                    </div>
+
+                    <div class="project-detail__skills">
+                        <span class="chip chip--soft">Java</span>
+                        <span class="chip chip--soft">Swing</span>
+                        <span class="chip chip--soft">JFrame</span>
+                        <span class="chip chip--soft">AWT</span>
+                        <span class="chip chip--soft">OOP</span>
+                        <span class="chip chip--soft">Figma</span>
+                    </div>
+
+                    <div class="project-detail__buttons">
+                        <!-- Replace href with your real Figma link -->
+                        <a class="view-btn"
+                            href="https://www.figma.com/design/ic1DbX5nd89moeOwvOup9A/Games-UI?node-id=0-1&t=kgYBZICXAC3DN9r3-1"
+                            target="_blank" rel="noreferrer" aria-label="View in Figma">
+                            <span class="view-btn__text">VIEW</span>
+                            <img class="view-btn__icon" src="img/figma.svg" alt="" />
+                        </a>
+
+                        <!-- Replace href with your real repo link -->
+                        <a class="view-btn" href="https://github.com/AlejandroGLo/Java-Game" target="_blank"
+                            rel="noreferrer" aria-label="View on GitHub">
+                            <span class="view-btn__text">VIEW</span>
+                            <img class="view-btn__icon" src="img/github.svg" alt="" />
+                        </a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

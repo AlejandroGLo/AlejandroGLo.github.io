@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AG BuyCars | Project</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <!-- NAV (same as index, but center links go back to index anchors) -->
+    <header class="site-header">
+        <nav class="nav">
+            <div class="nav__left">
+                <a class="icon-btn" href="https://www.linkedin.com/in/alejandrogalvezlopez" target="_blank"
+                    rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                    <img src="img/linkedin.svg" alt="LinkedIn" class="nav-icon" />
+                </a>
+
+                <a class="icon-btn" href="https://github.com/AlejandroGLo" target="_blank" rel="noreferrer"
+                    aria-label="GitHub" title="GitHub">
+                    <img src="img/github.svg" alt="GitHub" class="nav-icon" />
+                </a>
+
+                <a class="icon-btn" href="https://www.figma.com/@alejandroglo" target="_blank" rel="noreferrer"
+                    aria-label="Figma" title="Figma">
+                    <img src="img/figma.svg" alt="Figma" class="nav-icon" />
+                </a>
+            </div>
+
+            <div class="nav__center">
+                <a class="nav__link" href="index.html#about">About</a>
+                <a class="nav__link" href="index.html#experience">Experience</a>
+                <a class="nav__link" href="index.html#projects">Projects</a>
+                <a class="nav__link" href="index.html#contact">Contact</a>
+            </div>
+
+            <div class="nav__right">
+                <a class="btn btn--outline" href="cv/MyCV:Resume.pdf" target="_blank" rel="noreferrer">
+                    Resume
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section section--hero section--project">
+            <div class="container project-detail">
+
+                <!-- LEFT -->
+                <div class="project-detail__main">
+                    <h1 class="project-detail__title">AG BuyCars</h1>
+                    <p class="project-detail__subtitle">
+                        UI Design and Web Development for a second-hand car dealer
+                    </p>
+
+                    <h2 class="project-detail__section-title">UI Design</h2>
+                    <ul class="project-detail__list">
+                        <li>Research and got inspirations from other auto-dealers.</li>
+                        <li>Created a simple design, allowing the admin and owner to easily navigate the website and
+                            manage their car inventory.</li>
+                        <li>Used Figma community assets to access high quality car pictures that I could use for the
+                            design of the website.</li>
+                    </ul>
+
+                    <h2 class="project-detail__section-title">Web Development</h2>
+                    <ul class="project-detail__list">
+                        <li>Generated the Figma design using Next.js.</li>
+                        <li>Developed an authentication system with Firebase Auth.</li>
+                        <li>Used SQLite to manage the car inventory as a database.</li>
+                        <li>Enabled a PDF report download for streamlined tracking.</li>
+                    </ul>
+                </div>
+
+                <!-- RIGHT -->
+                <aside class="project-detail__side">
+                    <div class="project-detail__preview">
+                        <!-- Use the image you already have for this project -->
+                        <img src="img/AGBCover.png" alt="AG BuyCars preview" />
+                    </div>
+
+                    <div class="project-detail__skills">
+                        <span class="chip chip--soft">UI Design</span>
+                        <span class="chip chip--soft">Design Principles</span>
+                        <span class="chip chip--soft">Next.js</span>
+
+                        <span class="chip chip--soft">Firebase</span>
+                        <span class="chip chip--soft">SQLite</span>
+                        <span class="chip chip--soft">Wireframes</span>
+
+                        <span class="chip chip--soft">Mockups</span>
+                        <span class="chip chip--soft">Prototypes</span>
+                        <span class="chip chip--soft">Components</span>
+                    </div>
+
+                    <div class="project-detail__buttons">
+                        <!-- Replace these hrefs with your real links -->
+                        <a class="view-btn"
+                            href="https://www.figma.com/design/ReYBtHWw7Y6dHvd9RKfFdU/AGBUYCARS-Portfolio?t=kgYBZICXAC3DN9r3-1"
+                            target="_blank" rel="noreferrer">
+                            <span class="view-btn__text">VIEW</span>
+                            <img class="view-btn__icon" src="img/figma.svg" alt="Figma" />
+                        </a>
+                    </div>
+                </aside>
+
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

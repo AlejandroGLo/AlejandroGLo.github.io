@@ -97,7 +97,7 @@ img {
     color: var(--text);
 }
 
-/* --- SVG ICON BUTTONS (UPDATED) --- */
+/* --- SVG ICON BUTTONS --- */
 .icon-btn {
     width: 26px;
     height: 26px;
@@ -107,7 +107,6 @@ img {
     background: rgba(255, 255, 255, .08);
     border: 1px solid rgba(255, 255, 255, .06);
     text-decoration: none;
-
     transition: background .2s ease, transform .2s ease, border-color .2s ease;
 }
 
@@ -162,7 +161,6 @@ img {
     background: var(--bg-hero);
     min-height: 90vh;
 
-    /* push content down */
     padding-top: 140px;
     padding-bottom: 120px;
 
@@ -170,6 +168,13 @@ img {
     align-items: flex-start;
     scroll-margin-top: 66px;
 }
+
+/* Project pages should sit higher */
+.section--project {
+    padding-top: 50px;
+    /* try 80–100px */
+}
+
 
 .hero {
     display: grid;
@@ -222,15 +227,11 @@ img {
 /* ================= TECH STACK ================= */
 .section--tech {
     background: var(--bg-tech);
-
-    /* height of the frame */
     min-height: 90vh;
 
-    /* vertical centering */
     display: flex;
     align-items: center;
 
-    /* breathing room */
     padding-top: 80px;
     padding-bottom: 140px;
 }
@@ -241,7 +242,6 @@ img {
     margin-bottom: 40px;
 }
 
-/* tech stack */
 .stack-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -281,72 +281,21 @@ img {
     scroll-margin-top: 66px;
 }
 
-/* Cards are narrower because each column is capped */
 .cards-2x2 {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 520px));
-    /* <-- adjust 480–560px */
     justify-content: center;
     gap: 40px;
-    /* spacing between cards */
 }
 
-/* Card styling */
 .card {
     background: rgba(255, 255, 255, .04);
     border: 1px solid rgba(255, 255, 255, .06);
     border-radius: 10px;
-
     width: 100%;
-    /* fill the capped grid column */
     padding: 20px;
-    /* tighter */
     min-height: auto;
-}
 
-.card__title {
-    margin: 0 0 4px;
-    font-size: 12px;
-    font-weight: 900;
-}
-
-.card__meta {
-    margin: 0 0 12px;
-    font-size: 11px;
-    color: var(--muted);
-}
-
-/* Image area: full width so there’s less side dead space */
-.card__thumb {
-    width: 100%;
-    margin-top: 8px;
-
-    aspect-ratio: 16 / 9;
-    border-radius: 10px;
-    overflow: hidden;
-
-    display: grid;
-    place-items: center;
-}
-
-/* Keep images fully visible (no cropping) */
-.card__thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-/* Optional: if your logo images have too much internal whitespace, add padding */
-.card__thumb--logo img {
-    padding: 6%;
-}
-
-/* keep your offset for experience */
-.section--experience>.container {
-    transform: translateY(var(--secondary-frame-offset));
-}
-
-.card {
     cursor: pointer;
     transition:
         transform 0.25s ease,
@@ -364,14 +313,55 @@ img {
         inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
+.card__title {
+    margin: 0 0 4px;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.card__meta {
+    margin: 0 0 12px;
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.card__thumb {
+    width: 100%;
+    margin-top: 8px;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+
+.card__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.card__thumb--logo img {
+    padding: 6%;
+}
+
+/* link cards (prevents blue/purple + underline) */
 .card--link {
     text-decoration: none;
     color: inherit;
     display: block;
 }
 
+.card--link * {
+    text-decoration: none;
+    color: inherit;
+}
 
-
+/* keep your offset for experience + projects */
+.section--experience>.container,
+.section--projects>.container {
+    transform: translateY(var(--secondary-frame-offset));
+}
 
 /* ================= PROJECTS ================= */
 .section--projects {
@@ -396,6 +386,12 @@ img {
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, .06);
     background: rgba(255, 255, 255, .03);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        background-color 0.25s ease;
 }
 
 .project__title {
@@ -423,6 +419,27 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+/* PROJECT clickable wrapper (your HTML uses .card-link) */
+.project-list>.card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* remove underline/color from anything inside */
+.project-list>.card-link * {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* hover effect on the CARD (article.project) when the link is hovered */
+.project-list>.card-link:hover .project {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.30);
 }
 
 /* ================= CONTACT ================= */
@@ -469,14 +486,7 @@ img {
     font-size: 12px;
 }
 
-/* keep your offset for experience + projects */
-.section--experience>.container,
-.section--projects>.container {
-    transform: translateY(var(--secondary-frame-offset));
-}
-
 /* ================= EXPERIENCE DETAIL PAGE ================= */
-
 .experience-detail {
     display: grid;
     grid-template-columns: 1.6fr 1fr;
@@ -510,9 +520,7 @@ img {
     line-height: 1.8;
     font-size: 13px;
     text-align: justify;
-    /* ✅ aligns both sides */
     text-justify: inter-word;
-    /* better spacing */
 }
 
 .experience-detail__side {
@@ -559,7 +567,8 @@ img {
     align-items: center;
     justify-content: center;
 
-    padding: 10px 14px;
+    padding: 10px 12px;
+    /* less vertical + horizontal space */
     border-radius: 8px;
 
     font-size: 13px;
@@ -567,16 +576,322 @@ img {
     color: var(--text);
 
     background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.12);
 
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
     white-space: nowrap;
 }
+
 
 .experience-detail__logo--agb {
     width: min(260px, 100%);
     margin-left: auto;
     margin-right: auto;
+}
+
+/* ================= PROJECT DETAIL PAGE ================= */
+.project-detail {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 60px;
+    align-items: start;
+
+    /* lowers page content under nav */
+    padding-top: 60px;
+}
+
+/* LEFT */
+.project-detail__title {
+    margin: 0 0 8px;
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 0.4px;
+}
+
+.project-detail__subtitle {
+    margin: 0 0 34px;
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.project-detail__section-title {
+    margin: 22px 0 10px;
+    font-weight: 900;
+    font-size: 16px;
+}
+
+.project-detail__list {
+    margin: 0 0 22px;
+    padding-left: 18px;
+    line-height: 1.9;
+    font-size: 13px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* RIGHT */
+.project-detail__side {
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+    padding-left: 40px;
+}
+
+.project-detail__preview {
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    margin-bottom: 26px;
+}
+
+.project-detail__preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.project-detail__skills {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 16px;
+    margin-top: 18px;
+}
+
+.project-detail__buttons {
+    margin-top: 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.view-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+
+    padding: 16px 18px;
+    border-radius: 10px;
+
+    text-decoration: none;
+    color: var(--text);
+
+    background: rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.view-btn:hover {
+    transform: translateY(-2px);
+    background: rgba(0, 0, 0, 0.34);
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+.view-btn__text {
+    font-weight: 900;
+    letter-spacing: 0.6px;
+    font-size: 18px;
+}
+
+.view-btn__icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.experience-detail__chips .chip,
+.project-detail__skills .chip {
+    width: auto !important;
+    justify-self: stretch;
+    /* each chip fills its grid cell nicely */
+    padding: 10px 12px;
+}
+
+/* ================= PROJECT DETAIL PAGE (Stage12 project) ================= */
+/* This is NEW and isolated so it won’t affect Experience pages */
+
+
+
+.section--detail {
+    padding-top: 10px;
+    padding-bottom: 90px;
+}
+
+/* main layout */
+.project-detail {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* LEFT */
+.project-detail__title {
+    margin: 0 0 10px;
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+}
+
+.project-detail__subtitle {
+    margin-bottom: 30px;
+    max-width: 620px;
+    /* same readable width as Experience */
+    line-height: 1.6;
+}
+
+.project-detail__section-title {
+    margin-top: 28px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.project-detail__list {
+    margin: 0 0 20px;
+    padding-left: 18px;
+    line-height: 1.8;
+    font-size: 13px;
+
+    /* aligned sides */
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.project-detail__list li {
+    margin-bottom: 8px;
+}
+
+/* RIGHT */
+.project-detail__side {
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+    padding-left: 40px;
+}
+
+.project-detail__preview {
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    margin-bottom: 18px;
+}
+
+.project-detail__preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* ✅ IMPORTANT: chips for PROJECT detail page ONLY (2 per row) */
+.project-detail__chips {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 12px;
+}
+
+.project-detail__chips .chip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--text);
+
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    white-space: nowrap;
+}
+
+/* buttons */
+.project-detail__buttons {
+    margin-top: 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.project-detail__buttons--single {
+    grid-template-columns: 1fr;
+}
+
+.view-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+
+    padding: 18px 18px;
+    border-radius: 12px;
+
+    text-decoration: none;
+    color: var(--text);
+
+    background: rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.view-btn:hover {
+    transform: translateY(-2px);
+    background: rgba(0, 0, 0, 0.34);
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+.view-btn__text {
+    font-weight: 900;
+    letter-spacing: 0.6px;
+    font-size: 22px;
+}
+
+.view-btn__icon {
+    width: 26px;
+    height: 26px;
+    display: block;
+}
+
+.project-detail__skills {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px 18px;
+}
+
+@media (max-width: 900px) {
+    .project-detail__skills {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* responsive */
+@media (max-width: 900px) {
+    .project-detail {
+        grid-template-columns: 1fr;
+        gap: 34px;
+    }
+
+    .project-detail__side {
+        border-left: none;
+        padding-left: 0;
+    }
+
+    .project-detail__chips {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-detail__buttons {
+        grid-template-columns: 1fr;
+    }
 }
 
 
@@ -632,5 +947,24 @@ img {
     .experience-detail__chips {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         justify-items: start;
+    }
+
+    .project-detail {
+        grid-template-columns: 1fr;
+        gap: 34px;
+        padding-top: 40px;
+    }
+
+    .project-detail__side {
+        border-left: none;
+        padding-left: 0;
+    }
+
+    .project-detail__skills {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-detail__buttons {
+        grid-template-columns: 1fr;
     }
 }
